@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Segmentación de Tarifas - Gerson Torrez</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">Sprint 1 - Segmentación de Tarifas de Internet</div>
+      <div class="meta">Gerson Torrez · UMSA · Modelamiento de Datos I</div>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="card intro">
+      <h1>Introducción</h1>
+      <p>Proyecto: segmentación de clientes residenciales (FTTH) para ajuste de planes. 
+      Esta página está lista para publicar en GitHub Pages sin instalar nada.</p>
+      <ul>
+        <li>Objetivo: generar segmentos accionables mediante clustering.</li>
+        <li>Criterio: Silhouette Score, interpretabilidad y utilidad comercial.</li>
+      </ul>
+    </section>
+
+    <section class="card eda">
+      <h2>Exploratory Data Analysis (ejemplo)</h2>
+      <p>Gráficos de ejemplo generados con Chart.js. Reemplaza con tus datos reales si quieres.</p>
+      <div class="charts-row">
+        <canvas id="lineChart" height="160"></canvas>
+        <canvas id="pieChart" height="160"></canvas>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><strong>72,274</strong><span>Registros</span></div>
+        <div class="stat"><strong>12</strong><span>Variables</span></div>
+        <div class="stat"><strong>4</strong><span>Clusters (ejemplo)</span></div>
+      </div>
+    </section>
+
+    <section class="card modelo">
+      <h2>Modelos y Metodología</h2>
+      <p>Modelo principal: <strong>K-Means</strong>. Competidores: DBSCAN, GMM.</p>
+      <p>Ecuación (K-Means): J = Σ<sub>i=1..k</sub> Σ<sub>x∈C<sub>i</sub></sub> ||x - μ<sub>i</sub>||²</p>
+      <ol>
+        <li>Preprocesamiento: limpieza, escalado.</li>
+        <li>Feature engineering: consumo relativo, reclamos por año.</li>
+        <li>Evaluación: Silhouette, Davies-Bouldin, Calinski-Harabasz.</li>
+      </ol>
+    </section>
+
+    <section class="card resultados">
+      <h2>Resultados (ejemplo)</h2>
+      <div class="metrics">
+        <div class="metric"><strong>K-Means</strong><span>Silhouette: 0.64</span></div>
+        <div class="metric"><strong>DBSCAN</strong><span>Silhouette: 0.42</span></div>
+        <div class="metric"><strong>GMM</strong><span>Silhouette: 0.59</span></div>
+      </div>
+      <h3>Acciones propuestas</h3>
+      <ul>
+        <li>Ofrecer downgrades con beneficios para usuarios de bajo uso.</li>
+        <li>Promocionar upgrades para usuarios intensivos con prueba gratuita.</li>
+        <li>Soporte prioritario para usuarios con reclamos frecuentes.</li>
+      </ul>
+    </section>
+
+    <section class="card conclusiones">
+      <h2>Conclusiones y Ética</h2>
+      <p>Se recomienda un piloto A/B y anonimizar PII. Evitar segmentaciones que resulten en discriminación.</p>
+      <p class="links">
+        <a href="#" class="btn">Ver Notebook (placeholder)</a>
+        <a href="#" class="btn outline">Repositorio GitHub</a>
+        <a href="#" class="btn outline">Descargar Informe (PDF)</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Gerson Torrez — UMSA · Modelamiento de Datos I</p>
+      <p>© 2025 · Sprint 1</p>
+    </div>
+  </footer>
+
+<script>
+// Sample data for charts (replace with real data if available)
+const lineData = {
+  labels: ['Ene','Feb','Mar','Abr','May','Jun'],
+  datasets: [{
+    label: 'Promedio MB descargados',
+    data: [50,55,62,70,68,75],
+    fill: true,
+    tension: 0.3,
+    borderWidth: 2,
+    pointRadius: 3
+  }]
+};
+
+const pieData = {
+  labels: ['Low','Medium','High','Support-Heavy'],
+  datasets: [{
+    label: 'Usuarios',
+    data: [4200,2600,900,400],
+    hoverOffset: 8
+  }]
+};
+
+// Create charts with basic animations
+const lineCtx = document.getElementById('lineChart').getContext('2d');
+new Chart(lineCtx, {
+  type: 'line',
+  data: lineData,
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    animation: { duration: 900 }
+  }
+});
+
+const pieCtx = document.getElementById('pieChart').getContext('2d');
+new Chart(pieCtx, {
+  type: 'pie',
+  data: pieData,
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'right' } },
+    animation: { duration: 900 }
+  }
+});
+</script>
+
+</body>
+</html>
