@@ -78,7 +78,9 @@
             <li>Interpretar los grupos resultantes identificando características distintivas de cada patrón (por ejemplo: consumo diurno intensivo, actividad nocturna o uso homogéneo), con el fin de relacionarlos con posibles comportamientos o rutinas de los usuarios.</li>
             <li>Generar visualizaciones comparativas y conclusiones analíticas que permitan comunicar de forma clara los resultados del modelo, evidenciando la utilidad práctica de la segmentación para el análisis del comportamiento energético residencial.</li>
         </ol>
+      </section>
 
+      <section id="metodologia" class="panel">
         <h3>Delimitación del Alcance</h3>
         <p>El presente estudio se enfoca en el análisis y segmentación del consumo eléctrico diario registrado en un hogar residencial, utilizando datos horarios de energía activa global provenientes del conjunto de datos público “240,000 Household Electricity Consumption Records” disponible en Kaggle. La investigación se limita al uso de variables relacionadas con el comportamiento energético, específicamente:</p>
         <h4>Variables predictoras (atributos de entrada)</h4>
@@ -94,27 +96,6 @@
         <ol>
           <li>El estudio no aborda la predicción de consumo futuro ni la estimación de variables económicas.</li>
         </ol>
-      </section>
-
-      <section id="metodologia" class="panel">
-        <h2>2. Determinación de la Técnica Analítica</h2>
-
-        <h3>2.1 Análisis exploratorio (EDA)</h3>
-        <p>Se realizará EDA para entender distribuciones, correlaciones y detectar outliers. Se aplicará escalamiento (StandardScaler/MinMax) según convenga.</p>
-
-        <h3>2.2 Técnicas propuestas</h3>
-        <ul>
-          <li><strong>Principal:</strong> K-Means (por interpretabilidad y eficiencia).</li>
-          <li><strong>Competidoras:</strong> DBSCAN (detección de densidades), Agglomerative Clustering (jerárquico).</li>
-          <li><strong>Reducción dimensional:</strong> PCA para visualización y limpieza de ruido.</li>
-        </ul>
-
-        <h3>2.3 Función matemática (K-Means)</h3>
-        <pre class="code-block">J = Σ_{i=1}^{k} Σ_{x_j ∈ S_i} || x_j - μ_i ||^2</pre>
-        <p>Donde <em>k</em> es el número de clusters, <em>S_i</em> el conjunto de puntos del cluster i y <em>μ_i</em> su centroide.</p>
-
-        <h3>2.4 Criterio de selección</h3>
-        <p>Se prioriza interpretabilidad para negocio, costo computacional razonable y estabilidad de clusters.</p>
       </section>
 
       <section id="resultados" class="panel">
