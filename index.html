@@ -70,7 +70,7 @@
         <h3>Objetivo general</h3>
         <p>Identificar y caracterizar patrones de consumo eléctrico diario en un hogar residencial, mediante la aplicación de técnicas de aprendizaje no supervisado, específicamente el algoritmo K-Means, con el propósito de descubrir perfiles de comportamiento energético que contribuyan a una mejor comprensión del uso de la energía y a la posible optimización de estrategias tarifarias o de eficiencia energética.</p>
 
-        <h3>1.2 Objetivos específicos</h3>
+        <h3>Objetivos específicos</h3>
         <ol>
             <li>Procesar y transformar los registros de consumo eléctrico (fecha, hora y potencia activa global) para generar un conjunto de datos representativo del consumo promedio horario por día.</li>
             <li>Aplicar técnicas de análisis exploratorio de datos (EDA) con el fin de identificar tendencias, distribuciones y posibles anomalías en los patrones diarios de consumo eléctrico.</li>
@@ -79,17 +79,21 @@
             <li>Generar visualizaciones comparativas y conclusiones analíticas que permitan comunicar de forma clara los resultados del modelo, evidenciando la utilidad práctica de la segmentación para el análisis del comportamiento energético residencial.</li>
         </ol>
 
-        <h3>1.3 Alcance</h3>
-        <p>Variables consideradas: ciudad, velocidad contratada, velocidad real promedio, consumo mensual, monto mensual, reclamos, antigüedad, tipo de plan. Los datos serán anonimados y tratados con criterios éticos.</p>
-
-        <h3>1.4 Hipótesis iniciales</h3>
+        <h3>Delimitación del Alcance</h3>
+        <p>El presente estudio se enfoca en el análisis y segmentación del consumo eléctrico diario registrado en un hogar residencial, utilizando datos horarios de energía activa global provenientes del conjunto de datos público “240,000 Household Electricity Consumption Records” disponible en Kaggle. La investigación se limita al uso de variables relacionadas con el comportamiento energético, específicamente:</p>
+        <h4>Variables predictoras (atributos de entrada)</h4>
         <ol>
-          <li>Clientes con consumo real mucho menor que velocidad contratada pueden ser reasignados a planes más económicos.</li>
-          <li>Clientes con alta velocidad real y reclamos frecuentes conforman un segmento premium que requiere atención proactiva.</li>
+          <li>Global_active_power: Potencia activa global (kW).</li>
+          <li>Date y Time: Fecha y hora de registro, utilizadas para generar las variables horarias agregadas (consumo promedio por hora y consumo total diario).</li>
+          <li>Sub_metering_1, Sub_metering_2, Sub_metering_3: Consumos parciales de diferentes circuitos domésticos.</li>
         </ol>
 
-        <h3>1.5 Criterio de éxito</h3>
-        <p>Obtener clusters con <strong>Silhouette score &gt; 0.5</strong> y una segmentación interpretable por el equipo de negocio.</p>
+        <h4>Variable objetivo</h4>
+        <p>No existe una variable objetivo supervisada. En su lugar, se busca descubrir grupos naturales dentro de los registros de consumo diario (aprendizaje no supervisado).</p>
+        <h4>Limitaciones</h4>
+        <ol>
+          <li>El estudio no aborda la predicción de consumo futuro ni la estimación de variables económicas.</li>
+        </ol>
       </section>
 
       <section id="metodologia" class="panel">
